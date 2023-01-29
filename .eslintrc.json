@@ -1,0 +1,44 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": [
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    // "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "linebreak-style": "off",
+        "no-confusing-arrow": "off",
+        "comma-dangle": "off",
+        "no-param-reassign": "off",
+        "implicit-arrow-linebreak": "off",
+        "class-methods-use-this": 0,
+        "no-unused-vars": "warn",
+        "no-empty": "warn",
+        "no-empty-function": "warn",
+        "operator-linebreak": "warn",
+        "no-plusplus": "off",
+        "no-await-in-loop": "off",
+        "no-continue": "off",
+        "no-restricted-syntax": "off",
+        "no-lonely-if": "off",
+        "function-paren-newline": "off",
+        "no-underscore-dangle": "off",
+        "dot-notation": "off",
+        "camelcase": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
+    }
+}

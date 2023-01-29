@@ -1,0 +1,38 @@
+{
+  "name": "bt-tools",
+  "version": "0.0.1",
+  "description": "A Backend Support for All the Useful tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "bigtricks"
+  ],
+  "author": "Sonu Gupta",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "axios": "^1.2.3",
+    "body-parser": "^1.20.1",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "tall": "^8.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.3.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "husky": "^8.0.0",
+    "mocha": "^10.1.0",
+    "nodemon": "^2.0.20",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.3"
+  }
+}
