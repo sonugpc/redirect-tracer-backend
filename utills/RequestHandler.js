@@ -17,7 +17,7 @@ class RequestHandler {
     return res.status(200).json({
       type: "success",
       message: message || "Success Result",
-      data: data,
+      data,
     });
   }
 }
