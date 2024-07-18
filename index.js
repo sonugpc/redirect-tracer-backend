@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs");
+
 const { initializeDatabase } = require("./models");
 const app = express();
 app.use(cors());
@@ -11,6 +13,16 @@ initializeDatabase()
     });
   })
   .catch((err) => {
+    app.listen(3000, () => {
+      console.log("Server listening on http://localhost:3000");
+    });
+    fs.writeFile("d.txt", err, (err) => {
+      if (err) {
+        console.error(err);
+      } else {
+        // file written successfully
+      }
+    });
     console.error("Unable to Connect DB");
     console.log(err);
   });
