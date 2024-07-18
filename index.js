@@ -16,7 +16,7 @@ initializeDatabase()
     app.listen(3000, () => {
       console.log("Server listening on http://localhost:3000");
     });
-    fs.writeFile("d.txt", err, (err) => {
+    fs.writeFile("d.txt", err.message, (err) => {
       if (err) {
         console.error(err);
       } else {
