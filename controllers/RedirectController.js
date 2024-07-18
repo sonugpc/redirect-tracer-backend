@@ -1,10 +1,29 @@
 const RequestHandler = require("../utills/RequestHandler");
 const cheerio = require("cheerio");
 const { default: axios } = require("axios");
+const { getConnection } = require("../models");
 
 const requestHandler = new RequestHandler();
 
 class RedirectController {
+  static async insertToDB(result, req) {
+    try {
+      const connection = getConnection();
+      const [resp] = await connection.execute(
+        "INSERT INTO `tracer-logs` (url,results, status, ip, `user-agent`) VALUES (?, ?, ?, ?, ?)",
+        [
+          req.body.shortUrl,
+          result.followUrl,
+          result.statusCode,
+          req.ip,
+          req.headers["user-agent"],
+        ]
+      );
+      return resp.id;
+    } catch (err) {
+      console.error("Error executing query:", err);
+    }
+  }
   static async traceRedirect(req, res) {
     const shortUrl = req.body.shortUrl;
     const redirectUrls = []; // Array to store the URLs in the redirect chain
@@ -80,7 +99,8 @@ class RedirectController {
         return redirectUrls;
       };
 
-      const result = await followRedirects(currentUrl, redirectUrls);
+      let result = await followRedirects(currentUrl, redirectUrls);
+      result.traceId = await RedirectController.insertToDB(result[0], req);
 
       requestHandler.sendSuccess(
         req,
